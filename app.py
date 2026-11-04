@@ -5,7 +5,7 @@ import joblib
 import matplotlib.pyplot as plt
 
 # Configuración de la página
-st.set_page_config(page_title="Big Five Predictor & Cluster", layout="wide")
+st.set_page_config(page_title="Big Five Predictor & Cluster by Gerry", layout="wide")
 st.title("🧠 Clasificador de Personalidad Big Five (OCEAN)")
 st.write("Ingresa tus resultados del test Big Five para descubrir tu cluster de personalidad, famosos con rasgos similares y comparar tus puntuaciones en un gráfico de radar.")
 
