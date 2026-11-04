@@ -5,7 +5,7 @@ import joblib
 import matplotlib.pyplot as plt
 
 # Configuración de la página
-st.set_page_config(page_title="Big Five Predictor & Cluster by Gerry", layout="wide")
+st.set_page_config(page_title="Big Five Predictor & Cluster By Gerry", layout="wide")
 st.title("🧠 Clasificador de Personalidad Big Five (OCEAN)")
 st.write("Ingresa tus resultados del test Big Five para descubrir tu cluster de personalidad, famosos con rasgos similares y comparar tus puntuaciones en un gráfico de radar.")
 
@@ -32,6 +32,11 @@ def load_models():
 try:
     df = load_data()
     kmeans, scaler = load_models()
+    
+    # Generar la columna 'cluster' para los famosos del dataset original
+    features = ['op', 'co', 'ex', 'ag', 'ne']
+    df_scaled = scaler.transform(df[features])
+    df['cluster'] = kmeans.predict(df_scaled)
 except Exception as e:
     st.error(f"Error al cargar los datos o modelos: {e}")
     st.stop()
