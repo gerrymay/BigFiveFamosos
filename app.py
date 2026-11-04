@@ -43,11 +43,11 @@ except Exception as e:
 
 # 2. Sidebar para entrada de datos
 st.sidebar.header("Tus Resultados Big Five")
-op_val = st.sidebar.slider("Apertura a la experiencia (op)", 0.0, 100.0, 67.8, 0.1)
-co_val = st.sidebar.slider("Responsabilidad / Orden (co)", 0.0, 100.0, 38.2, 0.1)
+op_val = st.sidebar.slider("Apertura a la experiencia (op)", 0.0, 100.0, 0.0, 0.1)
+co_val = st.sidebar.slider("Responsabilidad / Orden (co)", 0.0, 100.0, 0.2, 0.1)
 ex_val = st.sidebar.slider("Extraversión (ex)", 0.0, 100.0, 43.0, 0.1)
-ag_val = st.sidebar.slider("Amabilidad / Empatía (ag)", 0.0, 100.0, 62.9, 0.1)
-e_val = st.sidebar.slider("Neuroticismo (ne)", 0.0, 100.0, 68.0, 0.1)
+ag_val = st.sidebar.slider("Amabilidad / Empatía (ag)", 0.0, 100.0, 0.9, 0.1)
+e_val = st.sidebar.slider("Neuroticismo (ne)", 0.0, 100.0, 0.0, 0.1)
 
 # 3. Procesar Predicción
 user_data = pd.DataFrame([{ 'op': op_val, 'co': co_val, 'ex': ex_val, 'ag': ag_val, 'ne': e_val }])
@@ -64,7 +64,7 @@ with col1:
     # Obtener famosos de este cluster
     famosos_cluster = df[df['cluster'] == predicted_cluster]
     st.write(f"### 🌟 Famosos en tu mismo cluster ({len(famosos_cluster)} en total)")
-    st.dataframe(famosos_cluster[['usuario', 'categoria_nombre', 'op', 'co', 'ex', 'ag', 'ne']].head(5))
+    #st.dataframe(famosos_cluster[['usuario', 'categoria_nombre', 'op', 'co', 'ex', 'ag', 'ne']].head(5))
 
 with col2:
     st.write("### 📊 Comparativa de Radar")
